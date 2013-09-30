@@ -6,28 +6,48 @@ Course Materials for [Back-end Web Development](http://betamore.com/academy/back
 
 If using a Mac
 
-* XCode 4.6.3 from http://developer.apple.com/downloads
-* Homebrew from http://brew.sh
+Setup `PATH` and `subl` shortcut in `~/.bash_profile`
 
-Then install git, mysql, rbenv and ruby-build via homebrew:
+    export PATH=~/bin:/usr/local/bin:$PATH
+    
+Create the `bin` directory in your home:
+
+    $ mkdir ~/bin
+
+Create the `subl` shortcut
+
+    $ ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl ~/bin/
+
+Install Command Line Tools from http://developer.apple.com/downloads
+
+Install Homebrew from http://brew.sh
+
+Then install git, rbenv, ruby-build, ruby 2.0 and postgres via homebrew:
 
     brew install git
-    brew install mysql
+
+Install GitX 0.7 from http://gitx.frim.nl
+
+Install rbenv
+
     brew install rbenv
+    
+Add this to your `~/.bash_profile` to make rbenv load in each new shell
+    
+    eval "$(rbenv init -)"; fi
+    
+Install `ruby-build` so you can install ruby via rbenv
+    
     brew install ruby-build
 
 Install Ruby 2.0 via rbenv:
 
     rbenv install 2.0.0-p247
     
-Install GitX 0.7 from http://gitx.frim.nl
-Install Sequel 1.0.2 Pro from http://www.sequelpro.com
+Install postgresql:
+    
+    brew install postgresql
 
-* Unit 1 - Intro to Ruby
-* Unit 2 - Advanced Ruby
-* Unit 3 - HTML & Rails
-* Unit 4 - Controllers & Views
-* Unit 5 - SQL, ActiveRecord and Models
-* Unit 6 - CSS, JavaScript and Asset Pipeline
-* Unit 7 - Sending Email, Cron Jobs and Background Jobs
-* Unit 8 - Caching
+Fix `unix_socket_directory` before loading plist into launchctl
+    
+
