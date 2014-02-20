@@ -41,23 +41,66 @@ Once you have downloaded and installed Sublime Text, make it so that you can lau
 
 For the last command, don't try to type it all out or copy and paste it. Type `/` then the first few letters of the path "App", then press tab. It will complete the rest of the word. Do this for each part of the path. Doing it this way will verify that these directories actually exist on your computer and you have typed it correctly.
 
-## RBENV
+## rbenv
 
-    brew install rbenv
+[rbenv](https://github.com/sstephenson/rbenv), *arr-bee-env*, is a ruby installer similar to, but in my opinion [better than RVM](https://github.com/sstephenson/rbenv/wiki/Why-rbenv%3F), so you should use rbenv for this class. If you have RVM installed, unless you need it specifically for some other reason, I recommend [uninstalling it](http://rvm.io/support/faq#where-is-everything-installed-to-) with:
 
-Add this to your `~/.bash_profile` to make rbenv load in each new shell
+    rm -rf ~/.rvm
 
-    eval "$(rbenv init -)"; fi
+To use rbenv, replace the contents of your `~/.bash_profile` to look like this:
 
-Install `ruby-build` so you can install ruby via rbenv
+```bash
+export EDITOR='subl -w'
+export VISUAL='subl -w'
 
-    brew install ruby-build
+# my bin
+PATH=~/bin
 
-Install Ruby 2.1 via rbenv:
+# rbenv
+PATH+=:~/.rbenv/bin
+
+# postgres
+export PGHOME=/Applications/Postgres93.app/Contents/MacOS
+PATH+=:$PGHOME/bin
+
+# heroku
+PATH+=:/usr/local/heroku/bin
+
+# homebrew
+PATH+=:/usr/local/bin
+
+# unix
+PATH+=:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+
+export PATH
+
+# Load rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+```
+
+Replace the entire contents of your `~/.bash_profile` with this. You can leave other things in your `~/.bash_profile` if you know what they do and you are sure you need them. If you are unsure, ask me.
+
+Also make sure to start a new terminal tab or window once you have modified your `~/.bash_profile` so the settings take effect.
+
+Now you can install `rbenv` by running these commands
+
+    git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+    git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+    git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+
+
+## Ruby 2.1
+
+With rbenv properly installed, you just need to run this command to install Ruby 2.1:
 
     rbenv install 2.1.0
 
 ## Postgres
 
-Install [Postgres.app](http://postgresapp.com/)
+Download and install [Postgres.app](http://postgresapp.com/). Make sure to run the application. Once you do, you will see an elephant icon in the menu bar in the top right, to the left of things like the wifi, the time, etc.
 
+From that menu, uncheck *Open documentation at Start* and check *Automatically Start at Login*.
+
+## Rails
+
+    gem install rails
