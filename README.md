@@ -95,6 +95,17 @@ With rbenv properly installed, you just need to run this command to install Ruby
 
     rbenv install 2.1.0
 
+To make Ruby 2.1 be the default, run this command:
+
+    rbenv global 2.1.0
+
+Now, if you check which verison of ruby is being used, you should see something like this:
+
+    $ which ruby
+    /Users/paul/.rbenv/shims/ruby
+    $ ruby -v
+    ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin13.0]
+
 ## Postgres
 
 Download and install [Postgres.app](http://postgresapp.com/). Make sure to run the application. Once you do, you will see an elephant icon in the menu bar in the top right, to the left of things like the wifi, the time, etc.
@@ -104,3 +115,4 @@ From that menu, uncheck *Open documentation at Start* and check *Automatically S
 ## Rails
 
     gem install rails
+
