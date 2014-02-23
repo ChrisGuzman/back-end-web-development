@@ -88,7 +88,6 @@ Now you can install `rbenv` by running these commands
     git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
     git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
 
-
 ## Ruby 2.1
 
 With rbenv properly installed, you just need to run this command to install Ruby 2.1:
@@ -112,7 +111,21 @@ Download and install [Postgres.app](http://postgresapp.com/). Make sure to run t
 
 From that menu, uncheck *Open documentation at Start* and check *Automatically Start at Login*.
 
+## Configure Rubygems
+
+Before we start installing Rubygems, run the following command to use Sublime Text to create a file called `.gemrc` in your home directory:
+
+    subl ~/.gemrc
+
+Put the following one line into that file:
+
+    gem: --no-rdoc --no-ri
+
+This will prevent rdoc and ri from being created for each gem that is installed, which isn't needed and significantly slows down the process of installing gems.
+
 ## Rails
+
+Now that we have everything in place, installing Rails is as simple as installing the gem, which you can do by running the following command:
 
     gem install rails
 
